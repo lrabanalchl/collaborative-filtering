@@ -100,3 +100,12 @@ class MovieLens:
         if movie_name in self.name_to_movie_id:
             return self.name_to_movie_id[movie_name]
         return 0
+    
+    def get_random_movie(self):
+        df = self.movies_df.copy()
+        df['year'] = df['title'].str.extract(r'\(([1-2][0-9]{3})\)')
+        with_year = df[df['year'].notnull()]
+        with_year['year'] = with_year['year'].astype(int)
+
+        max_year = with_year['year'].max()
+        return with_year[with_year['year'] == max_year].sample(1)['movieId']
