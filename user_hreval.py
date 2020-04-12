@@ -1,6 +1,8 @@
 from surprise.model_selection import LeaveOneOut
 
 from input_data import MovieLens
+from hit_rate_metric import hit_rate
+
 
 def top_n_user_based_cf(trainset, user, quality_threshold=0.9, recs=10):
     similarities = algo.sim[user]
