@@ -6,4 +6,4 @@
 - A movie dataset is used but other datasets can be considered straightforwardly.
 
 ## Requirements
-pip install -r requirements.txt
+`pip install -r requirements.txt`
